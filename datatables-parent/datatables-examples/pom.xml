@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.wicketstuff</groupId>
 		<artifactId>datatables-parent</artifactId>
-		<version>9.12.0-SNAPSHOT</version>
+		<version>10.0.0-M2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>datatables-examples</artifactId>
@@ -57,17 +57,28 @@
 		</dependency>
 		<!-- Test -->
 		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.eclipse.jetty.aggregate</groupId>
-			<artifactId>jetty-all</artifactId>
-            <classifier>uber</classifier>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-jmx</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.wicket</groupId>
+			<artifactId>wicket-native-websocket-javax</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty.websocket</groupId>
+			<artifactId>websocket-jakarta-server</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.webjars</groupId>
@@ -76,4 +87,3 @@
 		</dependency>
 	</dependencies>
 </project>
-

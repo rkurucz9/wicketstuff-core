@@ -6,7 +6,7 @@
 	<groupId>org.wicketstuff</groupId>
 	<artifactId>wicketstuff-core</artifactId>
 	<packaging>pom</packaging>
-	<version>9.12.0-SNAPSHOT</version>
+	<version>10.0.0-M2-SNAPSHOT</version>
 	<name>WicketStuff Core Parent</name>
 	<description>
 		WicketStuff Core Parent is the parent project for all of the core WicketStuff projects.  It tries
@@ -16,8 +16,6 @@
 
 	<url>http://wicketstuff.org</url>
 
-	<!-- mocleiri: moved modules definition into the build-java5-modules and
-		build-java6-modules profiles -->
 	<licenses>
 		<license>
 			<name>The Apache Software License, Version 2.0</name>
@@ -186,6 +184,53 @@
 				</repository>
 			</repositories>
 		</profile>
+		<profile>
+			<id>eclipse-m2e</id>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.eclipse.m2e</groupId>
+							<artifactId>lifecycle-mapping</artifactId>
+							<version>1.0.0</version>
+							<configuration>
+								<lifecycleMappingMetadata>
+									<pluginExecutions>
+										<pluginExecution>
+											<pluginExecutionFilter>
+												<groupId>org.apache.maven.plugins</groupId>
+												<artifactId>maven-toolchains-plugin</artifactId>
+												<versionRange>[1.0,)</versionRange>
+												<goals>
+													<goal>toolchain</goal>
+												</goals>
+											</pluginExecutionFilter>
+											<action>
+												<ignore>true</ignore>
+											</action>
+										</pluginExecution>
+										<pluginExecution>
+											<pluginExecutionFilter>
+												<groupId>net.alchim31.maven</groupId>
+												<artifactId>scala-maven-plugin</artifactId>
+												<versionRange>[3.2.2,)</versionRange>
+												<goals>
+													<goal>compile</goal>
+													<goal>testCompile</goal>
+												</goals>
+											</pluginExecutionFilter>
+											<action>
+												<ignore>true</ignore>
+											</action>
+										</pluginExecution>
+									</pluginExecutions>
+								</lifecycleMappingMetadata>
+							</configuration>
+						</plugin>
+							</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
 	</profiles>
 
 	<issueManagement>
@@ -199,7 +244,7 @@
 			<post>users@wicket.apache.org</post>
 			<subscribe>users-subscribe@wicket.apache.org</subscribe>
 			<unsubscribe>users-unsubscribe@wicket.apache.org</unsubscribe>
-			<archive>http://www.nabble.com/Wicket---User-f13976.html</archive>
+			<archive>https://lists.apache.org/list.html?users@wicket.apache.org</archive>
 		</mailingList>
 	</mailingLists>
 
@@ -211,10 +256,10 @@
 	<!-- mocleiri: for distribution in to central repository sections in the main pom are not allowed -->
 
 	<properties>
-		<wicket.version>9.12.0-SNAPSHOT</wicket.version>
+		<wicket.version>10.0.0-M2-SNAPSHOT</wicket.version>
 
-		<maven.compiler.source>11</maven.compiler.source>
-		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -223,78 +268,77 @@
 		<deployment.disabled>false</deployment.disabled>
 		<sources.disabled>false</sources.disabled>
 
-		<hibernate.version>6.1.4.Final</hibernate.version>
+		<hibernate.version>6.2.6.Final</hibernate.version>
 		<hibernate-ehcache.version>6.0.0.Alpha7</hibernate-ehcache.version>
-		<hibernate-validator.version>8.0.0.Final</hibernate-validator.version>
+		<hibernate-validator.version>8.0.1.Final</hibernate-validator.version>
 		<javassist.version>3.29.2-GA</javassist.version>
-		<jetty.version>9.4.49.v20220914</jetty.version>
+		<jetty.version>11.0.14</jetty.version>
 		<sf-jung.version>2.1.1</sf-jung.version>
-		<shiro.version>1.9.1</shiro.version>
-		<slf4j.version>2.0.3</slf4j.version>
-		<logback.version>1.4.3</logback.version>
-		<log4j.version>2.19.0</log4j.version>
-		<spring.version>5.3.23</spring.version>
+		<shiro.version>1.11.0</shiro.version>
+		<slf4j.version>2.0.7</slf4j.version>
+		<logback.version>1.4.8</logback.version>
+		<log4j.version>2.20.0</log4j.version>
+		<spring.version>6.0.10</spring.version>
 		<cglib.version>3.3.0</cglib.version>
 		<objenesis.version>3.3</objenesis.version>
-		<scala.version>2.13.9</scala.version>
-		<jackson.version>2.13.4</jackson.version>
+		<scala.version>2.13.11</scala.version>
+		<jackson.version>2.14.3</jackson.version>
 		<poi.version>5.2.3</poi.version>
-		<guava.version>29.0-jre</guava.version>
-		<wicket-webjars.version>3.0.0-M4</wicket-webjars.version>
-		<commons-io.version>2.11.0</commons-io.version>
-		<xstream.version>1.4.19</xstream.version>
+		<guava.version>32.1.1-jre</guava.version>
+		<wicket-webjars.version>4.0.0</wicket-webjars.version>
+		<commons-io.version>2.13.0</commons-io.version>
+		<xstream.version>1.4.20</xstream.version>
 		<hamcrest.version>2.2</hamcrest.version>
 		<commons-logging.version>1.2</commons-logging.version>
-		<javax.servlet-api.version>3.1.0</javax.servlet-api.version>
-		<junit.version>5.9.1</junit.version>
-		<easymock.version>4.3</easymock.version>
-		<mockito.version>4.8.0</mockito.version>
-		<testng.version>7.6.1</testng.version>
+		<jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
+		<junit.version>5.9.3</junit.version>
+		<easymock.version>5.1.0</easymock.version>
+		<mockito.version>5.4.0</mockito.version>
 		<commons-beanutils.version>1.9.4</commons-beanutils.version>
 		<commons-collections4.version>4.4</commons-collections4.version>
 		<commons-digester3.version>3.2</commons-digester3.version>
 		<commons-lang3.version>3.12.0</commons-lang3.version>
-		<validation-api.version>2.0.1.Final</validation-api.version>
-		<jta.version>1.1</jta.version>
+		<validation-api.version>3.0.2</validation-api.version>
+		<jta.version>2.0.1</jta.version>
 		<htmlcompressor.version>1.5.2</htmlcompressor.version>
-		<closure-compiler.version>v20220905</closure-compiler.version>
+		<closure-compiler.version>v20230502</closure-compiler.version>
 		<ibatis2-sqlmap.version>2.1.7.597</ibatis2-sqlmap.version>
 		<jts.version>1.13</jts.version>
-		<gson.version>2.9.1</gson.version>
-		<wicket-bootstrap-core.version>4.0.4</wicket-bootstrap-core.version> <!-- 4.0.x is required for openlayers-3 (bootstrap3) -->
-		<jasperreports.version>6.20.0</jasperreports.version>
-		<bcprov.version>1.67</bcprov.version>
-		<joda-time.version>2.11.2</joda-time.version>
-		<ehcache.version>3.10.1</ehcache.version>
+		<gson.version>2.10.1</gson.version>
+		<wicket-bootstrap-core.version>7.0.0</wicket-bootstrap-core.version>
+		<jasperreports.version>6.20.5</jasperreports.version>
+		<bcprov.version>1.70</bcprov.version>
+		<joda-time.version>2.12.5</joda-time.version>
+		<ehcache.version>3.10.8</ehcache.version>
 		<commons-dbcp2.version>2.9.0</commons-dbcp2.version>
-		<javaee-api.version>7.0</javaee-api.version>
+		<jakartaee-api.version>10.0.0</jakartaee-api.version>
 		<clojure.version>1.11.1</clojure.version>
-		<groovy.version>3.0.13</groovy.version>
-		<asm-util.version>9.4</asm-util.version>
-		<hsqldb.version>2.7.0</hsqldb.version>
+		<groovy.version>4.0.7</groovy.version>
+		<asm-util.version>9.5</asm-util.version>
+		<hsqldb.version>2.7.2</hsqldb.version>
 		<jython-standalone.version>2.7.3</jython-standalone.version>
 		<!-- plugins -->
-		<maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-		<maven-javadoc-plugin.version>3.3.2</maven-javadoc-plugin.version>
+		<maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
+		<maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
 		<maven-source-plugin.version>3.2.1</maven-source-plugin.version>
-		<maven-bundle-plugin.version>5.1.4</maven-bundle-plugin.version>
-		<maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
-		<maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+		<maven-bundle-plugin.version>5.1.8</maven-bundle-plugin.version>
+		<maven-assembly-plugin.version>3.5.0</maven-assembly-plugin.version>
+		<maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
 		<maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version>
-		<maven-help-plugin.version>3.2.0</maven-help-plugin.version>
-		<maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>
-		<maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
-		<animal-sniffer-maven-plugin.version>1.21</animal-sniffer-maven-plugin.version>
+		<maven-help-plugin.version>3.4.0</maven-help-plugin.version>
+		<maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
+		<maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
+		<animal-sniffer-maven-plugin.version>1.23</animal-sniffer-maven-plugin.version>
 		<maven-pax-plugin.version>1.6.0</maven-pax-plugin.version>
-		<scala-maven-plugin.version>4.6.1</scala-maven-plugin.version>
-		<maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
-		<maven-deploy-plugin.version>3.0.0-M2</maven-deploy-plugin.version>
-		<maven-install-plugin.version>3.0.0-M1</maven-install-plugin.version>
-		<maven-site-plugin.version>3.11.0</maven-site-plugin.version>
+		<scala-maven-plugin.version>4.8.1</scala-maven-plugin.version>
+		<maven-clean-plugin.version>3.2.0</maven-clean-plugin.version>
+		<maven-deploy-plugin.version>3.1.1</maven-deploy-plugin.version>
+		<maven-install-plugin.version>3.1.1</maven-install-plugin.version>
+		<maven-site-plugin.version>4.0.0-M3</maven-site-plugin.version>
 		<maven-war-plugin.version>3.3.2</maven-war-plugin.version>
-		<maven-release-plugin.version>3.0.0-M5</maven-release-plugin.version>
+		<maven-release-plugin.version>3.0.0</maven-release-plugin.version>
 		<maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
-		<maven-pmd-plugin.version>3.16.0</maven-pmd-plugin.version>
+		<maven-pmd-plugin.version>3.20.0</maven-pmd-plugin.version>
 	</properties>
 
 	<prerequisites>
@@ -330,7 +374,6 @@
 		<module>openlayers3-parent</module>
 		<module>phonebook</module>
 		<module>plugin</module>
-		<module>portlet-parent</module>
 		<module>progressbar-parent</module>
 		<module>quickview-parent</module>
 		<module>simile-timeline-parent</module>
@@ -447,6 +490,11 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.wicket</groupId>
+				<artifactId>wicket-native-websocket-javax</artifactId>
+				<version>${wicket.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.wicket</groupId>
 				<artifactId>wicket</artifactId>
 				<version>${wicket.version}</version>
 				<type>test-jar</type>
@@ -489,7 +537,7 @@
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-log4j12</artifactId>
+				<artifactId>slf4j-reload4j</artifactId>
 				<version>${slf4j.version}</version>
 				<optional>true</optional>
 				<scope>runtime</scope>
@@ -510,9 +558,9 @@
 
 			<!-- TESTING / DEV -->
 			<dependency>
-				<groupId>javax.servlet</groupId>
-				<artifactId>javax.servlet-api</artifactId>
-				<version>${javax.servlet-api.version}</version>
+				<groupId>jakarta.servlet</groupId>
+				<artifactId>jakarta.servlet-api</artifactId>
+				<version>${jakarta.servlet-api.version}</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
@@ -546,22 +594,33 @@
 				<scope>test</scope>
 			</dependency>
 			<dependency>
-				<groupId>org.eclipse.jetty.aggregate</groupId>
-				<artifactId>jetty-all</artifactId>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-server</artifactId>
 				<version>${jetty.version}</version>
 				<scope>test</scope>
-				<classifier>uber</classifier>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-webapp</artifactId>
+				<version>${jetty.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-jmx</artifactId>
+				<version>${jetty.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.jetty.websocket</groupId>
+				<artifactId>websocket-jakarta-server</artifactId>
+				<version>${jetty.version}</version>
+				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-test</artifactId>
 				<version>${spring.version}</version>
-				<scope>test</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.testng</groupId>
-				<artifactId>testng</artifactId>
-				<version>${testng.version}</version>
 				<scope>test</scope>
 			</dependency>
 
@@ -626,8 +685,8 @@
 
 			<!-- HIBERNATE -->
 			<dependency>
-				<groupId>javax.validation</groupId>
-				<artifactId>validation-api</artifactId>
+				<groupId>jakarta.validation</groupId>
+				<artifactId>jakarta.validation-api</artifactId>
 				<version>${validation-api.version}</version>
 			</dependency>
 			<dependency>
@@ -637,8 +696,8 @@
 				<scope>runtime</scope>
 			</dependency>
 			<dependency>
-				<groupId>javax.transaction</groupId>
-				<artifactId>jta</artifactId>
+				<groupId>jakarta.transaction</groupId>
+				<artifactId>jakarta.transaction-api</artifactId>
 				<version>${jta.version}</version>
 			</dependency>
 			<dependency>
@@ -875,6 +934,16 @@
 				<version>${hamcrest.version}</version>
 				<scope>test</scope>
 			</dependency>
+			<dependency>
+				<groupId>org.bouncycastle</groupId>
+				<artifactId>bcprov-jdk15on</artifactId>
+				<version>${bcprov.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -963,44 +1032,6 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>org.apache.maven.plugins</groupId>
-										<artifactId>maven-toolchains-plugin</artifactId>
-										<versionRange>[1.0,)</versionRange>
-										<goals>
-											<goal>toolchain</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore>true</ignore>
-									</action>
-								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>net.alchim31.maven</groupId>
-										<artifactId>scala-maven-plugin</artifactId>
-										<versionRange>[3.2.2,)</versionRange>
-										<goals>
-											<goal>compile</goal>
-											<goal>testCompile</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore>true</ignore>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-javadoc-plugin</artifactId>
@@ -1119,7 +1150,6 @@
 					<configuration>
 						<release>${maven.compiler.source}</release>
 						<debug>true</debug>
-						<optimize>true</optimize>
 						<showDeprecation>true</showDeprecation>
 						<showWarnings>true</showWarnings>
 						<verbose>false</verbose>

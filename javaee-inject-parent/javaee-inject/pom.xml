@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.wicketstuff</groupId>
         <artifactId>javaee-inject-parent</artifactId>
-        <version>9.12.0-SNAPSHOT</version>
+        <version>10.0.0-M2-SNAPSHOT</version>
     </parent>
     <artifactId>wicketstuff-javaee-inject</artifactId>
     <packaging>jar</packaging>
@@ -23,14 +23,14 @@
             <artifactId>wicket-ioc</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>${javaee-api.version}</version>
-            <scope>provided</scope>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>${jakartaee-api.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>

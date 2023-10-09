@@ -19,7 +19,7 @@ object Dependencies {
   val Compile = Seq(
     "org.apache.wicket" %  "wicket-core"      % V.Wicket    % "compile",
     "org.wicketstuff.scala" % "wicketstuff-scala" % "6.0-SNAPSHOT" % "compile",
-    "org.slf4j" % "slf4j-log4j12" % V.Slf4j % "compile",
+    "org.slf4j" % "slf4j-reload4j" % V.Slf4j % "compile",
     "log4j" % "log4j" % "1.2.17"
   )
 
@@ -30,7 +30,7 @@ object Dependencies {
   )
 
   val Provided = Seq(
-    "javax.servlet" % "javax.servlet-api" % "3.0.1" % "provided"
+    "jakarta.servlet" % "jakarta.servlet-api" % "6.0.0" % "provided"
   )
 }
 

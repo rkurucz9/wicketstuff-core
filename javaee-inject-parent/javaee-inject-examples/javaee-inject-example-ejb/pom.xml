@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.wicketstuff</groupId>
 		<artifactId>javaee-inject-examples</artifactId>
-		<version>9.12.0-SNAPSHOT</version>
+		<version>10.0.0-M2-SNAPSHOT</version>
 	</parent>
 	<artifactId>javaee-inject-example-ejb</artifactId>
 	<packaging>ejb</packaging>
@@ -14,7 +14,7 @@
 		<javadoc.disabled>true</javadoc.disabled>
 		<deployment.disabled>true</deployment.disabled>
 		<sources.disabled>true</sources.disabled>
-		<maven-ejb-plugin.version>3.1.0</maven-ejb-plugin.version>
+		<maven-ejb-plugin.version>3.2.1</maven-ejb-plugin.version>
 	</properties>
 
 	<build>
@@ -36,11 +36,10 @@
 	</build>
 	<dependencies>
 		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-			<version>${javaee-api.version}</version>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-api</artifactId>
+			<version>${jakartaee-api.version}</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>
-

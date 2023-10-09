@@ -22,7 +22,7 @@ Copyright 2012 Vineet Semwal
     <parent>
         <groupId>org.wicketstuff</groupId>
         <artifactId>quickview-parent</artifactId>
-        <version>9.12.0-SNAPSHOT</version>
+        <version>10.0.0-M2-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -46,13 +46,6 @@ Copyright 2012 Vineet Semwal
             <version>${project.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.wicket</groupId>
-            <artifactId>wicket-native-websocket-javax</artifactId>
-            <version>${wicket.version}</version>
-        </dependency>
-
-
         <!-- LOGGING DEPENDENCIES - LOG4J -->
 
         <dependency>
@@ -61,12 +54,25 @@ Copyright 2012 Vineet Semwal
         </dependency>
 
 
-        <dependency>
-            <groupId>org.eclipse.jetty.aggregate</groupId>
-            <artifactId>jetty-all</artifactId>
-            <classifier>uber</classifier>
-        </dependency>
-
-
-    </dependencies>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-jmx</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.wicket</groupId>
+			<artifactId>wicket-native-websocket-javax</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty.websocket</groupId>
+			<artifactId>websocket-jakarta-server</artifactId>
+		</dependency>
+	</dependencies>
 </project>

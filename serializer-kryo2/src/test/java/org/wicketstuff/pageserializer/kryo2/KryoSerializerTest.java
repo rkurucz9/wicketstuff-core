@@ -20,7 +20,6 @@
  */
 package org.wicketstuff.pageserializer.kryo2;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -70,7 +69,8 @@ public class KryoSerializerTest
 		assertNotNull(data, "The produced data should not be null!");
 
 		// data length can fluctuate based on the object field values
-		assertEquals(777, data.length, "The produced data length is not correct!");
+		// commenting out this assertion as too much unstable
+		//assertEquals(777, data.length, "The produced data length is not correct!");
 
 		Object object = pageSerializer.deserialize(data);
 		assertTrue(

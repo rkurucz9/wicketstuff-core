@@ -1,6 +1,4 @@
 /**
- * Copyright 2012 Vineet Semwal
- * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,14 +13,17 @@
  */
 package org.wicketstuff;
 
-/**
- * @author Vineet Semwal
- */
-public abstract class TestQuickGridViewContainer extends TestQuickViewContainer {
-    public static final String quickViewId = "quickview", parentId = "parent", ajaxLinkId = "link", navigatorId = "navigator";
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-    public TestQuickGridViewContainer(String id) {
-        super(id);
-    }
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
+@Target({ ElementType.METHOD })
+@Retention(RetentionPolicy.RUNTIME)
+@Tag("utilTests")
+@Test
+public @interface UtilTest {
 }

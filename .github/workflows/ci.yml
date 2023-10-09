@@ -25,10 +25,11 @@ jobs:
   test:
     name: Java ${{ matrix.java }} Test
     runs-on: ubuntu-latest
+    environment: CI_DEPLOY
     strategy:
       matrix:
         java:
-        - '11'
+        - '17'
     env:
       MAVEN_OPTS: '-Xmx2g'
       MVN_COMMAND: 'verify'
@@ -55,7 +56,7 @@ jobs:
           CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
           CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
         run: |
-          echo "Event name: $EVENT_NAME"
+          echo "Event name: ${EVENT_NAME}"
           if [ $EVENT_NAME == "push" ]; then export MVN_COMMAND="deploy"; fi
           cp ./config/toolchains.xml $HOME/.m2/
           mvn -s sonatype-settings.xml $MVN_COMMAND -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dsource.skip=true -B -V
