@@ -6,7 +6,7 @@
 	<groupId>org.wicketstuff</groupId>
 	<artifactId>wicketstuff-core</artifactId>
 	<packaging>pom</packaging>
-	<version>10.0.0-M2-SNAPSHOT</version>
+	<version>10.0.0-M3-SNAPSHOT</version>
 	<name>WicketStuff Core Parent</name>
 	<description>
 		WicketStuff Core Parent is the parent project for all of the core WicketStuff projects.  It tries
@@ -256,7 +256,7 @@
 	<!-- mocleiri: for distribution in to central repository sections in the main pom are not allowed -->
 
 	<properties>
-		<wicket.version>10.0.0-M2-SNAPSHOT</wicket.version>
+		<wicket.version>10.0.0-M3-SNAPSHOT</wicket.version>
 
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
@@ -285,7 +285,8 @@
 		<jackson.version>2.14.3</jackson.version>
 		<poi.version>5.2.3</poi.version>
 		<guava.version>32.1.1-jre</guava.version>
-		<wicket-webjars.version>4.0.0</wicket-webjars.version>
+		<wicket-webjars.version>4.0.1</wicket-webjars.version>
+		<jquery-selectors.version>4.0.2</jquery-selectors.version>
 		<commons-io.version>2.13.0</commons-io.version>
 		<xstream.version>1.4.20</xstream.version>
 		<hamcrest.version>2.2</hamcrest.version>
@@ -407,6 +408,7 @@
 		<module>sitemap-xml-parent</module>
 		<module>urlfragment-parent</module>
 		<module>wicketstuff-rest-utils</module>
+		<module>wicketstuff-rest-tests</module>
 		<module>wicketstuff-restannotations-parent</module>
 		<module>wicket-mount-parent</module>
 		<module>select2-parent</module>
@@ -495,9 +497,8 @@
 			</dependency>
 			<dependency>
 				<groupId>org.apache.wicket</groupId>
-				<artifactId>wicket</artifactId>
+				<artifactId>wicket-tester</artifactId>
 				<version>${wicket.version}</version>
-				<type>test-jar</type>
 				<scope>test</scope>
 			</dependency>
 
@@ -766,6 +767,16 @@
 			</dependency>
 
 			<!-- OTHER -->
+			<dependency>
+				<groupId>de.agilecoders.wicket.webjars</groupId>
+				<artifactId>wicket-webjars</artifactId>
+				<version>${wicket-webjars.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>de.agilecoders.wicket</groupId>
+				<artifactId>jquery-selectors</artifactId>
+				<version>${jquery-selectors.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>com.googlecode.htmlcompressor</groupId>
 				<artifactId>htmlcompressor</artifactId>
@@ -1044,13 +1055,9 @@
 						<quiet>true</quiet>
 						<doclint>none</doclint>
 						<links>
-							<link>https://docs.oracle.com/en/java/javase/11/docs/api/</link>
-							<!-- <link>https://docs.oracle.com/javaee/7/api/</link>  Commented out due to
-							'The code being documented uses modules
-							but the packages defined in https://docs.oracle.com/javaee/7/api/ are
-							in the unnamed module.'-->
-							<link>https://ci.apache.org/projects/wicket/apidocs/9.x</link>
-							<link>https://docs.spring.io/spring/docs/5.1.x/javadoc-api</link>
+							<link>https://docs.oracle.com/en/java/javase/17/docs/api/</link>
+							<link>https://ci.apache.org/projects/wicket/apidocs/10.x</link>
+							<link>https://docs.spring.io/spring/docs/6.0.x/javadoc-api</link>
 							<!-- <link>https://logback.qos.ch/apidocs</link> Commented due to certificate error -->
 						</links>
 						<skip>${javadoc.disabled}</skip>
@@ -1215,6 +1222,7 @@
 						</includes>
 						<testFailureIgnore>false</testFailureIgnore>
 						<argLine>-Xmx1G --add-opens java.base/jdk.internal.loader=ALL-UNNAMED --add-modules=ALL-SYSTEM</argLine>
+						<useModulePath>false</useModulePath>
 					</configuration>
 				</plugin>
 				<plugin>

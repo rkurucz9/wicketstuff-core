@@ -20,7 +20,7 @@
 	<parent>
 		<groupId>org.wicketstuff</groupId>
 		<artifactId>datastores-parent</artifactId>
-		<version>10.0.0-M2-SNAPSHOT</version>
+		<version>10.0.0-M3-SNAPSHOT</version>
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
@@ -28,21 +28,5 @@
 	<packaging>jar</packaging>
 	<name>Apache Wicket IPageStore Common</name>
 	<description>Helper classes for Apache Wicket's IPageStore implementation</description>
-
-   <build>
-      <plugins>
-         <plugin>
-           <groupId>org.apache.maven.plugins</groupId>
-           <artifactId>maven-jar-plugin</artifactId>
-           <executions>
-             <execution>
-               <goals>
-                 <goal>test-jar</goal>
-               </goals>
-             </execution>
-           </executions>
-         </plugin>
-      </plugins>
-   </build>
 
 </project>

@@ -21,7 +21,7 @@ Copyright 2012 Vineet Semwal
     <parent>
         <groupId>org.wicketstuff</groupId>
         <artifactId>quickview-parent</artifactId>
-        <version>10.0.0-M2-SNAPSHOT</version>
+        <version>10.0.0-M3-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -55,6 +55,10 @@ Copyright 2012 Vineet Semwal
             <scope>test</scope>
         </dependency>
 
+		<dependency>
+			<groupId>org.apache.wicket</groupId>
+			<artifactId>wicket-tester</artifactId>
+		</dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>

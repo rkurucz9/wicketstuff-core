@@ -7,7 +7,7 @@
     <parent>
         <artifactId>wicket-foundation-parent</artifactId>
         <groupId>org.wicketstuff.foundation</groupId>
-        <version>10.0.0-M2-SNAPSHOT</version>
+        <version>10.0.0-M3-SNAPSHOT</version>
     </parent>
 
     <artifactId>wicket-foundation-samples</artifactId>
@@ -57,6 +57,10 @@
           <artifactId>jakarta.servlet-api</artifactId>
           <scope>test</scope>
         </dependency>
+		<dependency>
+			<groupId>org.apache.wicket</groupId>
+			<artifactId>wicket-tester</artifactId>
+		</dependency>
     </dependencies>
 
 </project>

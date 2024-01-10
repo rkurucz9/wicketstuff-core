@@ -17,7 +17,7 @@
 	<parent>
 		<artifactId>wicketstuff-restannotations-parent</artifactId>
 		<groupId>org.wicketstuff</groupId>
-		<version>10.0.0-M2-SNAPSHOT</version>
+		<version>10.0.0-M3-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>wicketstuff-restannotations</artifactId>
@@ -103,9 +103,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.wicketstuff</groupId>
-			<artifactId>wicketstuff-rest-utils</artifactId>
+			<artifactId>wicketstuff-rest-tests</artifactId>
 			<version>${project.version}</version>
-			<type>test-jar</type>
 			<scope>test</scope>
 		</dependency>
 
